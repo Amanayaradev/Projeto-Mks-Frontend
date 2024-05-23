@@ -15,7 +15,7 @@ export function Header() {
 
   useEffect(() => {
     const updateProductQuantity = () => {
-      const storedIdsString: string | null = localStorage.getItem('products');
+      const storedIdsString: string | null = localStorage.getItem('products') || null;
       const storedBuy: PropsProduto[] = storedIdsString ? JSON.parse(storedIdsString) : [];
       const qtdProduct = storedBuy.length;
       setQtd(qtdProduct);

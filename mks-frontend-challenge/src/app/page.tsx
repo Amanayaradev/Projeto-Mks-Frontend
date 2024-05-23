@@ -1,5 +1,6 @@
 "use client"
-import Cards from "@/components/cards/page";
+import Cards from "../components/cards/page";
+
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();

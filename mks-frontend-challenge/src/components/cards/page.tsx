@@ -1,5 +1,3 @@
-"use client"; 
-
 import axios from "axios";
 import Image from "next/image";
 import bag from "../../../public/shopping-bag.svg";
@@ -43,13 +41,10 @@ const handleBuy = (produto: PropsProduto) => {
   const storedProducts = localStorage.getItem('products');
   const products = storedProducts ? JSON.parse(storedProducts) : [];
 
-  // Verifica se o produto já está no carrinho pelo ID
   const productExists = products.some((p: PropsProduto) => p.id === produto.id);
   
   if (!productExists) {
-    // Adiciona o produto à lista de produtos
     products.push(produto);
-    // Atualiza o localStorage com a nova lista de produtos
     localStorage.setItem('products', JSON.stringify(products));
   } else {
     console.log("Este produto já está no carrinho.");
