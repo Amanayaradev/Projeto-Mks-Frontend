@@ -17,7 +17,7 @@ const params = {
   page: 1,
   rows: 10,
   sortBy: "id",
-  orderBy: "DESC"
+  orderBy: "ASC"
 };
 
 export async function fetchData() {

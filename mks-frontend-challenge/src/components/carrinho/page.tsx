@@ -17,6 +17,34 @@ const handleRemoveItem = (product: PropsProduto, setProducts: React.Dispatch<Rea
   setProducts(updatedProducts);
 }
 
+const handleDimunue = (product: PropsProduto, setProducts: React.Dispatch<React.SetStateAction<PropsProduto[]>>) => {
+  const storedProducts = localStorage.getItem('products');
+  const products = storedProducts ? JSON.parse(storedProducts) : [];
+
+  // Encontra o índice do produto no array de produtos
+  const index = products.findIndex((prod: PropsProduto) => prod.id === product.id);
+
+  // Verifica se o produto está no carrinho
+  if (index !== -1) {
+    const updatedProducts = [...products];
+    updatedProducts.splice(index, 1); // Remove o produto do array
+
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
+    setProducts(updatedProducts);
+  }
+}
+
+const handleAddItem = (product: PropsProduto, setProducts: React.Dispatch<React.SetStateAction<PropsProduto[]>>) => {
+  const storedProducts = localStorage.getItem('products');
+  const products = storedProducts ? JSON.parse(storedProducts) : [];
+
+  const updatedProducts: PropsProduto[] = [...products, product];
+
+  localStorage.setItem('products', JSON.stringify(updatedProducts));
+  setProducts(updatedProducts);
+}
+
+
 export default function Carrinho() {
   const [products, setProducts] = useState<PropsProduto[]>([]);
   const [values, setValues] = useState<string[]>(["0"]);
@@ -54,10 +82,11 @@ export default function Carrinho() {
                   <div className={styles.boxSpan}>
                     <p className={styles.quantityLabel}>qtd:</p>
                     <div className={styles.buttons}>
-                      <button type="submit" onClick={() => addProduct(1)}>-</button>
-                      <button>0</button>
-                      <button>+</button>
-                    </div>
+                    <button type="submit" onClick={() => handleDimunue(buy, setProducts)}>-</button>
+                    <button>{/* Aqui você pode colocar a quantidade do item */}</button>
+                    <button onClick={() => handleAddItem(buy, setProducts)}>+</button>
+                  </div>
+
                   </div>
                   <span>R${buy.price}</span>
                   <div className={styles.boxExcluir}>
