@@ -1,78 +1,124 @@
-.carrinho {
-  z-index: 1;
+.paddingCar {
   display: flex;
   flex-direction: column;
-  gap: 12.5rem;
-  justify-content: center;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 30%;
-  height: 100vh;
   background-color: #0F52BA;
-  color: #fff;
-  div:first-child {
-    margin: 0;
-    padding: 2rem 3rem;
-  }
-  button {
-    width: 100%;
-    background-color: #000;
-    color: white;
-    font-weight: bolder;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    padding: 2rem;
-  }
+  margin: 0;
+  padding: 1rem 3rem;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ulContainer {
+  margin-top: 3rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 1rem;
 }
 
 .ul {
-  margin-top: 3rem;
+  // padding: 5rem 0;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   list-style: none;
-  padding: 1rem 0;
-  li a div {
-    width: 100%;
-    height: 5rem;
+  // padding: 0;
+  margin: 0;
+}
+
+.ul li {
+  .boxExcluir {
+    z-index: 0;
+    margin: 3rem;
+    // background-color: #ee2323;
+    position: absolute;
+  }
+  .btnExcluir {
+    margin-bottom: 4.5rem;
+    margin-left: 20rem;
+    background-color: #000000; /* Mude a cor de fundo para vermelho, por exemplo */
+    border-radius: 100%; /* Mantenha o formato do botão redondo */
+    padding: 0.3rem; /* Reduza um pouco o preenchimento */
+    font-size: 0.8rem; /* Diminua o tamanho da fonte */
+  }
+  .boxCar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
     border-radius: 0.5rem;
+    padding: 1rem;
+    .boxImg {
+      display: flex;
+      gap: 1rem;
+      width: 12rem;
+      align-items: center;
+      p {
+        color: #2C2C2C;
+        margin: 0;
+        font-size: 1rem;
+      }
+    }
+
+    .boxSpan {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .quantityLabel {
+        margin: 0 0 0.25rem 0;
+        font-size: 0.7rem;
+      }
+
+      .buttons {
+        display: flex;
+
+        button {
+          border: 1px solid #ccc;
+          border-left: none;
+          padding: 0 0.3rem;
+          cursor: pointer;
+
+          &:first-child {
+            border-left: 1px solid #ccc;
+          }
+
+          &:hover {
+            background-color: #eee;
+          }
+        }
+      }
+    }
+    span {
+      font-weight: bolder;
+      font-size: 1rem;
+    }
+  }
+}
+
+.carrinhoH2 {
+  h2 {
+    color: #fff;
   }
 }
 
 .total {
+  margin: 2rem 0 0 0;
   display: flex;
   justify-content: space-between;
+  color: #fff;
 }
-
-.carrinhobox1 {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-}
-
-.carrinhoLink h2 {
-  display: block;
-  text-align: start;
-  font-size: 2vw;
-}
-
-@media (min-width: 768px) {
-  .ul {
-    li a div{
-      background-color: #fff;
-      color: black;
-      font-size: 1.5vw;
-    }
+.button {
+  z-index: 999999;
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  font-weight: bolder;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  padding: 2rem;
+  bottom {
+    cursor: pointer;
   }
 }
 
-@media (max-width: 968px) {  
-  .ul {
-    li a div{
-      background-color: #fff;
-      color: #000;
-    }
-  }
-}

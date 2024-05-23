@@ -31,8 +31,9 @@
 }
 
 .carrinhoClose {
+  margin: 1rem 2rem 4rem -2rem;
   cursor: pointer;
-  position: relative;
+  position: fixed;
   z-index: 99999;
   display: flex;
   gap: 1rem;
@@ -42,3 +43,38 @@
   padding: 0.5rem;
   border-radius: 100%;
 }
+
+.car {
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-width: 25rem;
+  height: 100vh; /* ou ajuste para um valor específico que funcione para você */
+  background-color: #0F52BA;
+  z-index: 1000;
+  overflow-y: auto; /* Adiciona rolagem vertical */
+  display: flex;
+  flex-direction: column;
+  // padding: 2rem; /* Adiciona preenchimento interno ao carrinho */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+// @media (min-width: 1200px) {
+//   .car {
+//     width: 20vw;
+//   }
+// }
+
+// @media (min-width: 768px) and (max-width: 1199px) {
+//   .car {
+//     width: 25vw;
+//   }
+// }
+
+// @media (max-width: 767px) {
+//   .car {
+//     width: 100%;
+//     height: auto;
+//     box-shadow: none;
+//   }
+// }
